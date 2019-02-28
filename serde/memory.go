@@ -29,7 +29,7 @@ type memSerDe struct {
 	lastId  int64
 }
 
-// Returns a SerDe which keeps everything in memory.
+// NewMemSerDe returns a SerDe which keeps everything in memory.
 func NewMemSerDe() *memSerDe {
 	return &memSerDe{
 		RWMutex: &sync.RWMutex{},

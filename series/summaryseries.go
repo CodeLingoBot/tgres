@@ -25,7 +25,7 @@ type SummarySeries struct {
 	Series
 }
 
-// Returns the max of all the values in the series.
+// Max returns the max of all the values in the series.
 func (f *SummarySeries) Max() (max float64) {
 	max = math.NaN()
 	for f.Series.Next() {
@@ -38,7 +38,7 @@ func (f *SummarySeries) Max() (max float64) {
 	return
 }
 
-// Returns the min of all the values in the series.
+// Min returns the min of all the values in the series.
 func (f *SummarySeries) Min() (min float64) {
 	min = math.NaN()
 	for f.Series.Next() {
@@ -51,7 +51,7 @@ func (f *SummarySeries) Min() (min float64) {
 	return
 }
 
-// Returns the simple average of all the values in the series.
+// Avg returns the simple average of all the values in the series.
 func (f *SummarySeries) Avg() float64 {
 	count := 0
 	sum := float64(0)
@@ -63,7 +63,7 @@ func (f *SummarySeries) Avg() float64 {
 	return sum / float64(count)
 }
 
-// Returns the standard deviation of all the values in the series.
+// StdDev returns the standard deviation of all the values in the series.
 func (f *SummarySeries) StdDev(avg float64) float64 {
 	count := 0
 	sum := float64(0)
@@ -75,7 +75,7 @@ func (f *SummarySeries) StdDev(avg float64) float64 {
 	return math.Sqrt(sum / float64(count-1))
 }
 
-// Returns the last value in the series.
+// Last returns the last value in the series.
 func (f *SummarySeries) Last() (last float64) {
 	for f.Series.Next() {
 		last = f.Series.CurrentValue()

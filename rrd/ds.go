@@ -116,7 +116,7 @@ func (ds *DataSource) SetRRAs(rras []RoundRobinArchiver) {
 	ds.checkLastUpdate()
 }
 
-// Returns a complete copy of this Data Source
+// Copy returns a complete copy of this Data Source
 func (ds *DataSource) Copy() DataSourcer {
 	newDs := &DataSource{
 		Pdp:        Pdp{value: ds.value, duration: ds.duration},
@@ -369,7 +369,7 @@ func (ds *DataSource) checkLastUpdate() {
 	}
 }
 
-// Return a DSSpec corresponding to this DS
+// Spec returns a DSSpec corresponding to this DS
 func (ds *DataSource) Spec() DSSpec {
 	spec := DSSpec{
 		Step:      ds.step,

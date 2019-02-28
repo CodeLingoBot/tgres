@@ -207,7 +207,7 @@ func (r *Receiver) SetCluster(c clusterer) {
 	}
 }
 
-// Return a pointer to dsCache
+// DsCache returns a pointer to dsCache
 func (r *Receiver) DsCache() *dsCache {
 	return r.dsc
 }

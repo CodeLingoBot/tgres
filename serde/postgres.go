@@ -1262,7 +1262,7 @@ func (p *pgvSerDe) loadRRADps(rra *DbRoundRobinArchive) (map[int64]float64, erro
 	return dps, nil
 }
 
-// Returns a *new* RRA based on the one passed in, containing all the data.
+// LoadRRAData returns a *new* RRA based on the one passed in, containing all the data.
 // If the database is behind and data has not been saved yet, the version system
 // will correct for it, latest does not have to be spot on accurate.
 func (p *pgvSerDe) LoadRRAData(rra rrd.RoundRobinArchiver) (rrd.RoundRobinArchiver, error) {

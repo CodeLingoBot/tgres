@@ -45,7 +45,7 @@ func (sl SeriesSlice) Next() bool {
 	return result
 }
 
-// Returns CurrentTime of the first series in the slice or zero time
+// CurrentTime returns CurrentTime of the first series in the slice or zero time
 // if slice is empty.
 func (sl SeriesSlice) CurrentTime() time.Time {
 	if len(sl) > 0 {
@@ -65,7 +65,7 @@ func (sl SeriesSlice) Close() error {
 	return nil
 }
 
-// Returns the step of the first series in the slice or 0 if slice is
+// Step returns the step of the first series in the slice or 0 if slice is
 // empty.
 func (sl SeriesSlice) Step() time.Duration {
 	// This returns the StepMs of the first series since we should
@@ -107,7 +107,7 @@ func (sl SeriesSlice) TimeRange(t ...time.Time) (time.Time, time.Time) {
 	return time.Time{}, time.Time{}
 }
 
-// Returns Latest() for the first series in the slice or zero time if
+// Latest returns Latest() for the first series in the slice or zero time if
 // slice is empty.
 func (sl SeriesSlice) Latest() time.Time {
 	if len(sl) > 0 {
@@ -171,7 +171,7 @@ func (sl SeriesSlice) Align() {
 	}
 }
 
-// Returns the arithmetic sum of all the current values in the series
+// Sum returns the arithmetic sum of all the current values in the series
 // in the slice.
 func (sl SeriesSlice) Sum() (result float64) {
 	for _, series := range sl {
@@ -182,7 +182,7 @@ func (sl SeriesSlice) Sum() (result float64) {
 	return
 }
 
-// Returns the product of all the current values in the series in the
+// Prod returns the product of all the current values in the series in the
 // slice.
 func (sl SeriesSlice) Prod() (result float64) {
 	for n, series := range sl {
@@ -195,13 +195,13 @@ func (sl SeriesSlice) Prod() (result float64) {
 	return
 }
 
-// Returns the simple average of all the current values in the series
+// Avg returns the simple average of all the current values in the series
 // in the slice.
 func (sl SeriesSlice) Avg() float64 {
 	return sl.Sum() / float64(len(sl))
 }
 
-// Returns the max of all the current values in the series in the
+// Max returns the max of all the current values in the series in the
 // slice.
 func (sl SeriesSlice) Max() float64 {
 	result := math.NaN()
@@ -214,7 +214,7 @@ func (sl SeriesSlice) Max() float64 {
 	return result
 }
 
-// Returns the min of all the current values in the series in the
+// Min returns the min of all the current values in the series in the
 // slice.
 func (sl SeriesSlice) Min() float64 {
 	result := math.NaN()
@@ -227,7 +227,7 @@ func (sl SeriesSlice) Min() float64 {
 	return result
 }
 
-// Returns the current value of the first series in the slice. (The
+// First returns the current value of the first series in the slice. (The
 // ordering of series is up to the implementation).
 func (sl SeriesSlice) First() float64 {
 	for _, series := range sl {
@@ -259,7 +259,7 @@ func Quantile(list []float64, p float64) float64 {
 	}
 }
 
-// Returns the p-th quantile (0 < p < 1) of the current values of the
+// Quantile returns the p-th quantile (0 < p < 1) of the current values of the
 // series in the slice.
 func (sl SeriesSlice) Quantile(p float64) float64 {
 	// This is a percentile of one data point, not the whole series
@@ -270,7 +270,7 @@ func (sl SeriesSlice) Quantile(p float64) float64 {
 	return Quantile(dps, p)
 }
 
-// Returns the difference between max and min of all the current
+// Range returns the difference between max and min of all the current
 // values of the series in the slice.
 func (sl SeriesSlice) Range() float64 {
 	return sl.Max() - sl.Min()

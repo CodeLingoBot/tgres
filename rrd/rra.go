@@ -105,7 +105,7 @@ func (rra *RoundRobinArchive) Size() int64 { return rra.size }
 // a slice to be more space-efficient for sparse series.
 func (rra *RoundRobinArchive) DPs() map[int64]float64 { return rra.dps }
 
-// Returns a new RRA in accordance with the provided RRASpec.
+// NewRoundRobinArchive returns a new RRA in accordance with the provided RRASpec.
 func NewRoundRobinArchive(spec RRASpec) *RoundRobinArchive {
 	result := &RoundRobinArchive{
 		cf:     spec.Function,
@@ -125,7 +125,7 @@ func NewRoundRobinArchive(spec RRASpec) *RoundRobinArchive {
 	return result
 }
 
-// Returns a complete copy of the RRA.
+// Copy returns a complete copy of the RRA.
 func (rra *RoundRobinArchive) Copy() RoundRobinArchiver {
 	new_rra := &RoundRobinArchive{
 		Pdp:    Pdp{value: rra.value, duration: rra.duration},

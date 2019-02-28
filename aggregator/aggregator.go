@@ -69,7 +69,7 @@ type State struct {
 	AppendAttr string
 }
 
-// Returns a new aggregator. The only argument needs to provide a
+// NewAggregator returns a new aggregator. The only argument needs to provide a
 // QueueDataPoint() method which is what the aggregator will use to
 // queue the aggregated points. The returned aggregator state has
 // Thresholds set to {90}.

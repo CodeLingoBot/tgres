@@ -76,7 +76,7 @@ type watcher interface {
 	Unwatch(ident serde.Ident)
 }
 
-// Returns a new instance of a NamedDSFetcher. The current
+// NewNamedDSFetcher returns a new instance of a NamedDSFetcher. The current
 // implementation will re-fetch all series names any time a series
 // cannot be found. TODO: Make this better.
 func NewNamedDSFetcher(db dsFetcherSearcher, dsc watcher, lruCap int) *namedDsFetcher {
